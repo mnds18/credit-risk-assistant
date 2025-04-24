@@ -5,11 +5,9 @@ import json
 import pandas as pd
 import shap
 import joblib
-import numpy as np
 import matplotlib.pyplot as plt
 
-
-# Enable access to orchestrator module
+# Path setup to allow imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from orchestrator import orchestrate_credit_assessment
 
@@ -37,11 +35,7 @@ if uploaded_file:
 
     st.subheader("✅ Eligibility")
     st.metric("Model Probability", f"{result['probability']*100:.1f}%")
-    if result['eligible']:
-        st.write("Eligible")
-    else:
-        st.write("Not Eligible")
-
+    st.write("Eligible" if result['eligible'] else "Not Eligible")
 
     st.subheader("📝 Reasons")
     for reason in result['rules_failed']:
@@ -70,52 +64,27 @@ if uploaded_file:
     st.code(result['policy_summary'], language="markdown")
 
     st.subheader("💬 LLM Explanation")
-    # Clean up the LLM explanation to prevent word concatenation
-    clean_llm_summary = result['llm_summary'].replace(" \n", " ")
-    st.info(clean_llm_summary)
+    st.info(result['llm_summary'])
 
-    st.subheader("🔍 SHAP Feature Importance")
-    # SHAP Feature Importance
-    
-    dti = round(profile["liabilities"] / profile["income"], 2)
-    # X_pred = pd.DataFrame([[
-    #     profile["income"],
-    #     profile["expenses"],
-    #     profile["liabilities"],
-    #     profile["loan_amount"],
-    #     profile["loan_term"],
-    #     profile["credit_score"],
-    #     dti,
-    #     1 if profile["employment_status"].lower() == "full-time" else 0
-    # ]], columns=["income", "expenses", "liabilities", "loan_amount", "loan_term", "credit_score", "dti", "is_full_time"])
-
-    X_pred = result["model_input"]
-
+    st.subheader("🧠 SHAP Feature Importance")
+    X_pred = pd.DataFrame([[
+        profile["income"],
+        profile["expenses"],
+        profile["liabilities"],
+        profile["loan_amount"],
+        profile["loan_term"],
+        profile["credit_score"],
+        round(profile["liabilities"] / profile["income"], 2),
+        1 if profile["employment_status"].lower() == "full-time" else 0
+    ]], columns=["income", "expenses", "liabilities", "loan_amount", "loan_term", "credit_score", "dti", "is_full_time"])
 
     explainer = shap.TreeExplainer(rf)
     shap_values = explainer.shap_values(X_pred)
-    print("SHAP Values:", shap_values)
-    print("data frame:", X_pred.head())
-    print("X_pred columns:", X_pred.columns)
+    shap_values_to_plot = shap_values[1] if len(shap_values) > 1 else shap_values[0]
 
-    # If shap_values has multiple outputs, use the second class for analysis
-    if len(shap_values) > 1:
-        shap_values_class_1 = shap_values[1]  # Select the SHAP values for class 1
+    if shap_values_to_plot.shape[1] == X_pred.shape[1]:
+        fig, ax = plt.subplots()
+        shap.summary_plot(shap_values_to_plot, X_pred, plot_type="bar", show=False)
+        st.pyplot(fig)
     else:
-        shap_values_class_1 = shap_values[0]  # Only class 0 is present
-
-    print("SHAP shape:", shap_values_class_1.shape)
-    print("X_pred shape:", X_pred.shape)
-    
-    # Ensure matching the shape of X_pred and shap_values
-    assert shap_values_class_1.shape[1] == X_pred.shape[1], \
-        f"Shape mismatch: {shap_values_class_1.shape[1]} != {X_pred.shape[1]}"
-
-    # Create a figure for SHAP plot
-    fig, ax = plt.subplots()
-
-    # Plot SHAP summary
-    shap.summary_plot(shap_values_class_1, X_pred, plot_type="bar", show=False)
-
-    # Use the figure in st.pyplot
-    st.pyplot(fig)
+        st.warning("Mismatch between SHAP values and input features. Skipping SHAP plot.")

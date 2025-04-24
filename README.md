@@ -1,47 +1,77 @@
-# 🧠 Automated Credit Risk Assistant (GenAI + Agentic AI)
+# 🏦 GenAI Credit Risk Assistant
 
-This is a modular GenAI-powered application for automated creditworthiness evaluation. It simulates a loan underwriting assistant using OpenAI GPT, RAG over credit policy documents, and LLM agents.
+This project is a Generative AI-powered credit risk evaluation tool that uses LLMs, SHAP explainability, and machine learning to assess loan eligibility in a transparent, policy-aware, and explainable way.
 
-## 🔧 Features
-- Modular agent-based architecture
-- Local run using VS Code + Python
-- GPT-4/GPT-3.5-powered reasoning
-- RAG for financial policy lookup
-- Synthetic profile analysis
-- Credit decision logic
-- Batch evaluator for multiple profiles
-- Interactive Streamlit dashboard (TBD)
+---
 
-## 🗂️ Project Structure
-```
-credit-risk-assistant/
-├── agents/
-│   ├── data_extractor.py
-│   ├── credit_policy_retriever.py
-│   └── risk_decision_agent.py
-├── data/
-│   ├── applicant_01.json → applicant_20.json
-│   └── generate_synthetic_data.py
-├── documents/
-│   └── home_loan_policy.txt
-├── batch_evaluator.py
-├── app/                    # Streamlit frontend (TBD)
-├── utils/                  # RAG utilities (TBD)
-├── requirements.txt
-└── README.md
-```
+## 🔍 Features
 
-## 🧪 Example Run
+- ✅ Upload JSON applicant profiles for auto-assessment
+- 📘 Policy document retrieval using LangChain RAG
+- 💬 GPT-based eligibility explanation (LLM summary)
+- 📊 SHAP-based model transparency
+- 📅 Streamlit UI for interaction and real-time analysis
+
+---
+
+## 🚀 How to Run
+
 ```bash
-# Generate synthetic data
-python data/generate_synthetic_data.py
+# Install dependencies
+pip install -r requirements.txt
 
-# Evaluate a single profile
-python agents/risk_decision_agent.py
+# Train model (optional if already trained)
+python train_model.py
 
-# Evaluate all profiles in batch
-python batch_evaluator.py
+# Run the app
+streamlit run app/streamlit_app.py
 ```
 
-## 📬 Contact
-Built by Mrig Debsarma – GenAI & Data Science Professional | Sydney
+---
+
+## 📁 Folder Structure
+
+```
+genai-credit-risk-assistant/
+├── app/
+│   ├── streamlit_app.py
+│   └── model/
+├── agents/
+│   ├── credit_policy_retriever.py
+│   ├── data_extractor.py
+├── documents/            # Policy docs
+├── data/                 # Applicant JSONs
+├── orchestrator.py       # Orchestration logic
+├── train_model.py        # Training script
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 📄 Example Output
+
+![UI Screenshot](demo/demo_ui.png)
+
+---
+
+## 🙌 Credits
+
+Built using:
+- OpenAI (LLM)
+- LangChain (agent + RAG)
+- Scikit-learn (model)
+- SHAP (interpretability)
+- Streamlit (UI)
+
+---
+
+## 💡 Project Purpose
+
+This project demonstrates how modern LLMs and classical ML can be combined in an **enterprise-grade AI pipeline** for financial services.
+
+It's modular, explainable, and designed to make you stand out to hiring managers looking for:
+- LLM use cases
+- Agentic AI architecture
+- Business impact from ML and GenAI
