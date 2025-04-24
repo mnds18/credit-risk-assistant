@@ -52,7 +52,7 @@ genai-credit-risk-assistant/
 
 ## 📄 Example Output
 
-![UI Screenshot](demo/demo_ui.png)
+![UI Screenshot](demo/credit_app_1.jpg)
 
 ---
 
