@@ -1,0 +1,10 @@
+{
+  "applicant_name": "Charlie Brown",
+  "income": 108264,
+  "expenses": 41052,
+  "liabilities": 13701,
+  "loan_amount": 485599,
+  "loan_term": 25,
+  "credit_score": 698,
+  "employment_status": "contract"
+}

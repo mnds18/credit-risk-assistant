@@ -1,0 +1,10 @@
+{
+  "applicant_name": "Alice Smith",
+  "income": 66804,
+  "expenses": 34493,
+  "liabilities": 47915,
+  "loan_amount": 553639,
+  "loan_term": 15,
+  "credit_score": 658,
+  "employment_status": "part-time"
+}

@@ -1,0 +1,9 @@
+### credit-risk-assistant/requirements.txt
+
+langchain
+langchain-community
+openai
+faiss-cpu
+tiktoken
+streamlit
+shap

@@ -1,0 +1,17 @@
+{
+  "model_name": "RandomForestClassifier",
+  "features": [
+    "income",
+    "expenses",
+    "liabilities",
+    "loan_amount",
+    "loan_term",
+    "credit_score",
+    "dti",
+    "is_full_time"
+  ],
+  "n_estimators": 100,
+  "random_state": 42,
+  "trained_on": "synthetic data (8 features)",
+  "notes": "Used for GenAI Credit Risk Assistant with SHAP support"
+}

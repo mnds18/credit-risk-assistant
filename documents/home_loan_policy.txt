@@ -1,0 +1,8 @@
+Home Loan Credit Policy (Synthetic)
+
+- The maximum Debt-to-Income (DTI) ratio allowed is 0.4
+- Applicants must have a minimum credit score of 680
+- Loan terms longer than 30 years are not permitted
+- Full-time employment status is preferred for eligibility
+
+Applicants not meeting these criteria may be subject to manual review.

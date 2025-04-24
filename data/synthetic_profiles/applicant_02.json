@@ -1,0 +1,10 @@
+{
+  "applicant_name": "Bob Johnson",
+  "income": 119968,
+  "expenses": 54137,
+  "liabilities": 16110,
+  "loan_amount": 558432,
+  "loan_term": 35,
+  "credit_score": 681,
+  "employment_status": "contract"
+}

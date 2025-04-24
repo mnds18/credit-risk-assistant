@@ -1,0 +1,10 @@
+{
+  "applicant_name": "Michael Scott",
+  "income": 113520,
+  "expenses": 37763,
+  "liabilities": 11789,
+  "loan_amount": 321965,
+  "loan_term": 20,
+  "credit_score": 772,
+  "employment_status": "full-time"
+}
