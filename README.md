@@ -30,7 +30,7 @@ Streamlit UI for end-user interaction.
 Dockerized deployment for scalable environments.
 
 ## 📊 Demo
-![Demo](docs/credit_app_1.jpg)
+![Demo](demo/credit_app_1.jpg)
 
 <details> <summary>🏗️ System Architecture (click to expand)</summary>
 css
