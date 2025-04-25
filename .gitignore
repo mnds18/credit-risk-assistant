@@ -1,29 +1,19 @@
-# Byte-compiled / cache
+# Python
 __pycache__/
-*.py[cod]
-*.so
-
-# Virtual environment
+*.pyc
+*.pyo
+*.pyd
+*.env
 .venv/
 venv/
+env/
 
-# Logs and outputs
-*.log
-*.out
-*.tmp
+# VS Code
+.vscode/
 
-# Streamlit state and temp
-.streamlit/
-temp_*.json
-
-# Model artifacts
-*.pkl
-*.joblib
-
-# Coverage
-htmlcov/
-.coverage
-
-# Misc
+# OS files
 .DS_Store
-*.ipynb_checkpoints/
+Thumbs.db
+
+# Streamlit temporary
+.streamlit/
