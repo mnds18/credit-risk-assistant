@@ -32,6 +32,9 @@ Dockerized deployment for scalable environments.
 ## 📊 Demo
 ![Demo](demo/credit_app_1.jpg)
 
+## 📊 Illustration
+![Demo](demo/credit_risk_assistant.png)
+
 <details> <summary>🏗️ System Architecture (click to expand)</summary>
 css
 Copy
