@@ -29,6 +29,9 @@ Streamlit UI for end-user interaction.
 
 Dockerized deployment for scalable environments.
 
+## 📊 Demo
+![Demo](docs/credit_app_1.jpg)
+
 <details> <summary>🏗️ System Architecture (click to expand)</summary>
 css
 Copy
@@ -79,7 +82,7 @@ Local Setup
 bash
 Copy
 Edit
-git clone https://github.com/YOUR_USERNAME/credit-risk-assistant.git
+git clone https://github.com/mnds18/credit-risk-assistant.git
 cd credit-risk-assistant
 python -m venv venv
 source venv/bin/activate    # (Windows: venv\\Scripts\\activate)
@@ -114,8 +117,11 @@ Single session	Authentication and session management
 Credit Risk Assistant bridges the gap between traditional credit decision-making and modern AI automation —
 providing speed, compliance, transparency, and trustworthiness for financial services operations.
 
-📬 Contact
-👤 Mrig Debsarma
+
+## ✍️ Author
+
+Built by [Mrig](https://www.linkedin.com/in/mrigendranath/)  
+
 📬 Open to feedback, collaborations, and enterprise solutions consulting.
 
 ⭐ If you found this project insightful, please consider starring ⭐ the repository and sharing it!
